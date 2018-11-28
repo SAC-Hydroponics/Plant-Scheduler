@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>webpage</h1>
+<p>webparagraph</p>
+
+<p id="Days"></p>
+
+<input type = 'text' id = 'User_Input'><br>
+<input type = 'button' onclick='getDays(plants,search_str)' value = 'submit'><br>
+
+<script>
+var days = 0;
+var plants = [['Kale','Dwarf Blue Curled Vates','Burpee',55],
+['Sage','Broadleaf (Salvia Officinalis)','Botanical Interests',30],
+['Cilantro','Longstanding','Ferry-Morse',70],
+['Lettuce','Black Seeded Simpson','Burpee',45],
+['Radish','French Breakfast','Ferry-Morse',23],
+['Tarragon','Mexican','Burpee',85],
+['Spinach','Bloomsdale Long Standing','Burpee',48],
+['Basil','Sweet Petra Dark Red','Burpee',60],
+['Garden Bean','Tenderette','Burpee',60]]
+
+var search_str = document.getElementById("User_Input").innerHTML;
+
+//console.log(plants.indexOf('Basil'))
+function getDays(plantArray,plant) {
+	for (var i = 0; i < plantArray.length; i++)
+		
+		var pos = plantArray.indexOf(plant)
+		console.log(plantArray[pos])
+		days = plantArray[pos][4]
+		//return plantArray[pos][3] 
+}
+
+//var days = getDays(plants,search_str)
+
+document.getElementById("Days").innerHTML = days;
+
+
+
+
+</script>
+
+</body>
+</html>
+
+output planting schedule based on user input.
+-weekly harvest
+
