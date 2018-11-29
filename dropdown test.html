@@ -2,17 +2,8 @@
 <html>
 <body>
 
-<div id = "DropDowns"> </div>
-
-<h2>The select Element</h2>
-<p>The select element defines a drop-down list:</p>
-
-  <select name="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
+<div id = "DropDowns"></div>
+<input type = "button" onclick='makeDropDown(plants)' value = "+">
 
 <script>
 var plants = [
@@ -25,17 +16,24 @@ var plants = [
   ['Spinach','Bloomsdale Long Standing','Burpee',48],
   ['Basil','Sweet Petra Dark Red','Burpee',60],
   ['Garden Bean','Tenderette','Burpee',60]]
+
+var num_dropdown = 0;
   
 function makeDropDown(plantList) {
-
-	var space = document.createElement('space');
-	space.innerHTML = '<select name="plantss">';
+	var space = document.getElementById('DropDowns');
+	num_dropdown = num_dropdown + 1
+	space.innerHTML += '<br><select id="plantDropDown' + num_dropdown + '"><option selected="selected">--choose--</option></select>';
+	x = document.getElementById("plantDropDown" + num_dropdown);
+	
 	for (var i = 0; i < plantList.length; i++){
+		
 		var plant = plantList[i][0]
-			space.innerHTML += '<option value=' + plant + '></option>';
+		var option = document.createElement("option");
+		option.text = plant;
+		option.value = plant;
+    x.add(option, x[0]);
 	}
-	space.innerHTML += '</select>';
-	document.getElementById('DropDowns').appendChild(space);
+	space.innerHTML += '  <input size="3" type="number" name="percent" min="1" max="100">'
 }
 makeDropDown(plants);
 </script>
